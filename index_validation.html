@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form id="loginForm" action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <h2>Submit a Comment:</h2>
+    <form id="commentForm" action="/submit-comment" method="post">
+        <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Enter your comment here"></textarea><br><br>
+        <input type="submit" value="Submit Comment">
+    </form>
+
+    <div id="commentsSection">
+        <h2>Comments:</h2>
+        <!-- Comments will be displayed here -->
+    </div>
+
+    <script>
+        // Validate comment input
+        document.getElementById('commentForm').onsubmit = function(event) {
+            const comment = document.getElementById('comment').value;
+            if (comment.trim() === '') {
+                alert('Comment cannot be empty');
+                event.preventDefault();
+            }
+        };
+    </script>
+</body>
+</html>
+
